@@ -1,0 +1,2 @@
+import{cv as i}from"./index-DoBJAHic.js";function s(c,a,v,o){let t=null,l=1e3;typeof a=="number"?(l=a,o=v):(t=a??null,l=v);const e=i(0);let n;const r=()=>{e.value=0,c.apply(o,n)},u=(...p)=>{t&&t.apply(o,p),n=p,l?e.value||(e.value=setTimeout(r,l)):r()};return u.remove=()=>{e.value&&(clearTimeout(e.value),e.value=0)},u.forceUpdate=()=>{e.value&&(clearTimeout(e.value),r())},u.hasPendingUpdates=()=>!!e.value,u}export{s as l};
+//# sourceMappingURL=throttle-DUAvH2BQ.js.map

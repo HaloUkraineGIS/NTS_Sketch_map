@@ -1,0 +1,2 @@
+import{Q as e,aR as f}from"./index-DoBJAHic.js";import{p as s}from"./queryTopFeatures-DL_TuKBZ.js";import n from"./TopFeaturesQuery-BzKawVIj.js";import"./query-DL4ERIfE.js";import"./pbfQueryUtils-BePzBY0F.js";import"./pbf-Kz5E34X0.js";import"./memoryEstimations-BSoBNvfQ.js";import"./OptimizedFeature-_EOnxddE.js";import"./OptimizedFeatureSet-BR8EEvDc.js";async function w(r,o,t,m){const i=e(r),p={...m},{data:a}=await s(i,n.from(o),t,p);return f.fromJSON(a)}export{w as executeTopFeaturesQuery};
+//# sourceMappingURL=executeTopFeaturesQuery-CMVbFWOa.js.map

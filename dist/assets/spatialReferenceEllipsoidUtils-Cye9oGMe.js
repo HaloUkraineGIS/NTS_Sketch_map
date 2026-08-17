@@ -1,0 +1,2 @@
+import{q as f,f0 as k,f1 as u,f2 as m,f3 as C,f4 as l,f5 as r}from"./index-DoBJAHic.js";const U=new f(m),n=new f(k),e=new f(u),q=new f(C);function x(t){const p=c.get(t);if(p)return p;let s=U;if(t)if(t===n)s=n;else if(t===e)s=e;else{const o=t.wkid,a=t.latestWkid;if(o!=null||a!=null)l(o)||l(a)?s=n:(r(o)||r(a))&&(s=e);else{const w=t.wkt2??t.wkt;if(w){const i=w.toUpperCase();i===$?s=n:i===d&&(s=e)}}}return c.set(t,s),s}const c=new Map,$=n.wkt.toUpperCase(),d=e.wkt.toUpperCase();export{x as a,q as c};
+//# sourceMappingURL=spatialReferenceEllipsoidUtils-Cye9oGMe.js.map

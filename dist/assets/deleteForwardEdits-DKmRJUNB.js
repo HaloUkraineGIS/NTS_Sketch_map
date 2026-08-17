@@ -1,0 +1,2 @@
+import{s as u,Q as f,R as c,U as p,V as $}from"./index-DoBJAHic.js";async function w(i,s,o,e){if(!s)throw new u("post:missing-guid","guid for version is missing");const t=f(i),r=o.toJSON(),a=c(t.query,{query:p({...r,f:"json"}),...e,method:"post"});s.startsWith("{")&&(s=s.slice(1,-1));const d=`${t.path}/versions/${s}/deleteForwardEdits`,{data:n}=await $(d,a);return n}export{w as deleteForwardEdits};
+//# sourceMappingURL=deleteForwardEdits-DKmRJUNB.js.map

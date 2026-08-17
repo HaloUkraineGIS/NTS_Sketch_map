@@ -1,0 +1,2 @@
+import{Q as s,aA as f}from"./index-DoBJAHic.js";import{p as u,m as c}from"./query-DL4ERIfE.js";async function d(n,t,r,o){const i=s(n),{data:a}=await u(i,f.from(t),r,o);return a.count}async function A(n,t,r,o){const i=s(n),{data:a}=await c(i,f.from(t),r,o);return a.objectIds??m(a.uniqueIds)??[]}function e(n){return!Array.isArray(n[0])}function m(n){if(n)return e(n)?n:n.map(t=>JSON.stringify(t))}export{A as i,d as s};
+//# sourceMappingURL=executeForIds-DdNSjFdI.js.map
