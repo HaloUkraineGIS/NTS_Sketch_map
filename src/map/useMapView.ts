@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import WebMap from "@arcgis/core/WebMap.js";
 import MapView from "@arcgis/core/views/MapView.js";
 import FeatureLayer from "@arcgis/core/layers/FeatureLayer.js";
-import IdentityManager from "@arcgis/core/identity/IdentityManager.js";
 import { config } from "@/config/env";
 import { useAppStore } from "@/store/useAppStore";
 
@@ -31,11 +30,6 @@ export function useMapView(): UseMapViewResult {
     console.log("🔍 Завантажую MapView для:", credential.userId);
     console.log("📍 WebMap ID:", config.webmapId);
     console.log("🔗 Portal URL:", config.portalUrl);
-
-    // Додаємо credential до IdentityManager для всіх запитів
-    if (!IdentityManager.credentials.find((c: any) => c.server.includes(config.portalUrl))) {
-      IdentityManager.add(credential);
-    }
 
     const webmap = new WebMap({
       portalItem: { 
