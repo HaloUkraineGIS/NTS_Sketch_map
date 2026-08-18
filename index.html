@@ -25,8 +25,15 @@
         padding: 0;
       }
     </style>
-    <script type="module" crossorigin src="/NTS_Sketch_map/assets/index-DoBJAHic.js"></script>
-    <link rel="stylesheet" crossorigin href="/NTS_Sketch_map/assets/index-CQED0rIl.css">
+    <script>
+      const currentPath = window.location.pathname.replace(/index\.html$/i, '');
+      const canonicalBase = `${window.location.origin}${currentPath.replace(/\/$/, '')}/`;
+      window.esriConfig = window.esriConfig || {};
+      window.esriConfig.applicationUrl = canonicalBase;
+      window.esriConfig.portalUrl = 'https://www.arcgis.com';
+    </script>
+    <script type="module" crossorigin src="./assets/index-DoBJAHic.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-CQED0rIl.css">
   </head>
   <body>
     <div id="root"></div>
