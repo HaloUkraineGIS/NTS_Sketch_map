@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import WebMap from "@arcgis/core/WebMap.js";
 import MapView from "@arcgis/core/views/MapView.js";
 import FeatureLayer from "@arcgis/core/layers/FeatureLayer.js";
+import IdentityManager from "@arcgis/core/identity/IdentityManager.js";
 import { config } from "@/config/env";
 import { useAppStore } from "@/store/useAppStore";
 
@@ -22,12 +23,25 @@ export function useMapView(): UseMapViewResult {
   const viewRef = useRef<MapView | null>(null);
   const [isReady, setIsReady] = useState(false);
   const setLayerRuntimeInfo = useAppStore((s) => s.setLayerRuntimeInfo);
+  const credential = useAppStore((s) => s.credential);
 
   useEffect(() => {
-    if (!containerRef.current || viewRef.current) return;
+    if (!containerRef.current || viewRef.current || !credential) return;
+
+    console.log("🔍 Завантажую MapView для:", credential.userId);
+    console.log("📍 WebMap ID:", config.webmapId);
+    console.log("🔗 Portal URL:", config.portalUrl);
+
+    // Додаємо credential до IdentityManager для всіх запитів
+    if (!IdentityManager.credentials.find((c: any) => c.server.includes(config.portalUrl))) {
+      IdentityManager.add(credential);
+    }
 
     const webmap = new WebMap({
-      portalItem: { id: config.webmapId },
+      portalItem: { 
+        id: config.webmapId, 
+        portal: { url: config.portalUrl } 
+      },
     });
 
     const view = new MapView({
@@ -58,23 +72,26 @@ export function useMapView(): UseMapViewResult {
                 ["supportsAdd", "supportsUpdate", "supportsDelete"].includes(c)
               );
 
+            console.log(`📌 Шар ${layerConfig.id}: canEdit=${canEdit}`);
             setLayerRuntimeInfo(layerConfig.id, { capabilities, canEdit });
           } catch (err) {
-            console.error(`Не вдалося зчитати capabilities для ${layerConfig.id}`, err);
+            console.error(`❌ Шар ${layerConfig.id}:`, err);
             setLayerRuntimeInfo(layerConfig.id, { capabilities: [], canEdit: false });
           }
         })
       );
 
+      console.log("✅ MapView готовий");
       setIsReady(true);
+    }).catch((err) => {
+      console.error("❌ MapView error:", err);
     });
 
     return () => {
       view.destroy();
       viewRef.current = null;
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [credential, setLayerRuntimeInfo]);
 
   return { containerRef, view: viewRef.current, isReady };
 }
