@@ -1,2 +1,0 @@
-import{aH as f,eW as i,eX as u,aT as o,eP as l}from"./index-DoBJAHic.js";function p(a,n,e,t){if(f(a.spatialReference,e)){s[0]=a.x,s[1]=a.y;const c=a.z;return s[2]=c??t??0,i(s,a.spatialReference,0,n,e,0)}const r=u(a,e);return!!r&&(n[0]=r?.x,n[1]=r?.y,n[2]=r?.z??t??0,!0)}async function y(a,n,e,t,r){return await l(a.spatialReference,e,null,r),p(a,n,e,t)}const s=o();export{y as c,p as i};
-//# sourceMappingURL=projectPointToVector-oVttk3Me.js.map

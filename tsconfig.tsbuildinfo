@@ -1,0 +1,1 @@
+{"root":["./src/calcite-jsx.d.ts","./src/main.tsx","./src/app/app.tsx","./src/app/authgate.tsx","./src/auth/oauth.ts","./src/config/env.ts","./src/editor/mapmodeui.tsx","./src/layout/layoutmodeui.tsx","./src/layout/layoutmodeuilazy.tsx","./src/map/mapcontainer.tsx","./src/map/mapviewcontext.tsx","./src/map/usemapview.ts","./src/store/useappstore.ts"],"version":"5.9.3"}

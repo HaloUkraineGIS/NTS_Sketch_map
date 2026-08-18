@@ -1,4 +1,0 @@
-import{n as d}from"./ref-m2itsmyS.js";import{i as g}from"./keyed-DtwUBpIF.js";import{aa as e,ac as $,dn as n,ab as f}from"./index-DoBJAHic.js";/*! All material copyright ESRI, All Rights Reserved, unless otherwise specified.
-See https://github.com/Esri/calcite-design-system/blob/dev/LICENSE.md for details.
-v3.3.3 */const c={arrow:"calcite-floating-ui-arrow",arrowStroke:"calcite-floating-ui-arrow__stroke"},k={width:12,height:6,strokeWidth:1},v=({floatingLayout:h,key:l,ref:w})=>{const{width:t,height:r,strokeWidth:o}=k,a=t/2,s=h==="vertical",i=`M0,0 H${t} L${t-a},${r} Q${a},${r} ${a},${r} Z`;return g(l,f`<svg aria-hidden=true class=${e(c.arrow)} height=${t} viewBox=${`0 0 ${t} ${t+(s?0:o)}`} width=${t+(s?o:0)} ${d(w)}>${n`${n`<path class=${e(c.arrowStroke)} d=${i??$} fill=none stroke-width=${o+1} />`||""}<path d=${i??$} stroke=none />`}</svg>`)};export{v as F};
-//# sourceMappingURL=FloatingArrow-D35rcoPt.js.map
